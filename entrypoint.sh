@@ -20,4 +20,4 @@ echo "starting noVNC"
 /novnc/noVNC/utils/launch.sh --vnc localhost:5900 &
 
 source /opt/ros/melodic/setup.bash
-/code-server/code-server --user-data-dir /workspace --allow-http --password $PASSWORD --auth password
+code-server --user-data-dir /workspace --auth password --bind-addr 0.0.0.0:8080

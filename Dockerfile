@@ -39,9 +39,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         rm -rf /var/lib/apt/lists/*
 
 # get code-server
-RUN mkdir /code-server &&\ 
-    wget -qO- https://github.com/cdr/code-server/releases/download/2.1523-vsc1.38.1/code-server2.1523-vsc1.38.1-linux-x86_64.tar.gz \
-    | tar xvz --strip-components=1 -C /code-server
+RUN curl -fOL https://github.com/cdr/code-server/releases/download/v3.4.1/code-server_3.4.1_amd64.deb
+RUN dpkg -i code-server_3.4.1_amd64.deb
+RUN rm -rf code-server_3.4.1_amd64.deb
 
 # get and setup novnc
 WORKDIR /novnc
