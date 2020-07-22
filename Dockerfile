@@ -66,6 +66,9 @@ ENV DISPLAY=":99" \
 RUN mkdir ~/.vnc
 RUN x11vnc -storepasswd $PASSWORD ~/.vnc/passwd
 
+# setup jwm
+COPY .jwmrc /entry/
+
 # setup the entrypoint script
 COPY entrypoint.sh /entry/
 RUN chmod +x /entry/entrypoint.sh
